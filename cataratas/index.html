@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Câmeras, sensores e alertas em um só lugar para proteger os visitantes e o meio ambiente das Cataratas do Iguaçu.">
+  <meta name="theme-color" content="#070b1e">
+  <title>Cataratas – Monitoramento Inteligente</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 34 26'%3E%3Cpath d='M1 20c6-12 10-16 15-8s9 2 17-9' fill='none' stroke='%232f6bff' stroke-width='3'/%3E%3Cpath d='M1 25c8-8 14-6 18-3s9 0 14-8' fill='none' stroke='%238b5cf6' stroke-width='3'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    // Aplica o tema salvo antes de a página aparecer (evita piscar).
+    try { var t = JSON.parse(localStorage.getItem("theme")); if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+
+  <header>
+    <a class="logo" href="#/inicio" aria-label="Cataratas, início">
+      <svg width="34" height="26" viewBox="0 0 34 26" aria-hidden="true">
+        <path d="M1 20c6-12 10-16 15-8s9 2 17-9" fill="none" stroke="#2f6bff" stroke-width="3"/>
+        <path d="M1 25c8-8 14-6 18-3s9 0 14-8" fill="none" stroke="#8b5cf6" stroke-width="3"/>
+      </svg>
+      <span>CATARATAS<small>MONITORAMENTO INTELIGENTE</small></span>
+    </a>
+    <nav id="nav" aria-label="Principal"></nav>
+    <input id="q" type="search" placeholder="Buscar câmeras, áreas ou alertas" aria-label="Buscar" autocomplete="off">
+    <button type="button" class="chip" id="th" aria-label="Alternar tema claro ou escuro">🌓</button>
+    <a id="bell" href="#/alertas" aria-label="Alertas ativos">🔔<span class="bn" id="bellN">0</span></a>
+    <span class="live"><span class="dot"></span>Sistema online</span>
+    <div id="res" class="card" hidden></div>
+  </header>
+
+  <main id="conteudo">
+
+    <!-- INÍCIO -->
+    <section id="inicio" aria-labelledby="inicio-titulo">
+      <div class="hero">
+        <div class="hp" aria-hidden="true"></div>
+        <div>
+          <h1 id="inicio-titulo">Sistema Inteligente de Monitoramento das <em>Cataratas do Iguaçu</em></h1>
+          <p class="sub sub--hero">Câmeras, sensores e alertas em um só lugar, para proteger os visitantes e o meio ambiente do parque.</p>
+          <a class="btn pri" href="#/mapa">Abrir mapa em tempo real</a>
+          <a class="btn" href="#/sobre">Conheça o projeto</a>
+        </div>
+        <span class="note hero-credit">
+          <span id="hn">Foto das Cataratas</span> ·
+          <a href="https://www.youtube.com/shorts/vr42AB7u-eA" target="_blank" rel="noopener noreferrer">Ver vídeo no YouTube</a>
+        </span>
+        <div class="card wx" aria-live="polite">
+          <small>Foz do Iguaçu - PR</small><br>
+          <b id="wT">24°C</b> <span>Nublado</span>
+          <dl>
+            <div><dt>Umidade</dt><dd id="wH">78%</dd></div>
+            <div><dt>Vento</dt><dd id="wW">12 km/h</dd></div>
+            <div><dt>Visibilidade</dt><dd id="wV">10 km</dd></div>
+          </dl>
+          <p class="note">Valores simulados para demonstração.</p>
+        </div>
+      </div>
+
+      <div class="feats">
+        <div class="card"><span class="ico" aria-hidden="true">📹</span>Monitoramento em tempo real</div>
+        <div class="card"><span class="ico" aria-hidden="true">🔔</span>Alertas inteligentes</div>
+        <div class="card"><span class="ico" aria-hidden="true">🛡️</span>Proteção das pessoas</div>
+        <div class="card"><span class="ico" aria-hidden="true">🌿</span>Preservação do meio ambiente</div>
+      </div>
+
+      <div class="kp4">
+        <div class="card"><b id="kpiC">10/10</b><span>Câmeras online</span></div>
+        <div class="card"><b id="kpiS">3/3</b><span>Sensores ativos</span></div>
+        <div class="card"><b class="alto" id="kpiA">0</b><span>Alertas ativos</span></div>
+        <div class="card"><b id="kpiV">4.820</b><span>Visitantes hoje (simulado)</span></div>
+      </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section id="sobre" aria-labelledby="sobre-titulo" hidden>
+      <h1 id="sobre-titulo">Tecnologia que protege um dos maiores patrimônios do mundo</h1>
+      <p class="sub sub--wide">O sistema combina sensores, câmeras e análise de dados para acompanhar o nível do rio, o clima e as áreas de risco das Cataratas do Iguaçu, ajudando a equipe a agir antes que um problema aconteça.</p>
+
+      <div class="grid g2">
+        <div class="card"><h3>🛡️ Segurança dos visitantes</h3><p class="sub sub--tight">Monitoramento das áreas de risco e aviso imediato quando algo foge do normal.</p></div>
+        <div class="card"><h3>🌿 Preservação ambiental</h3><p class="sub sub--tight">Acompanhamento do nível do rio e das condições do ecossistema.</p></div>
+        <div class="card"><h3>📊 Gestão eficiente</h3><p class="sub sub--tight">Dados e relatórios para apoiar a tomada de decisão.</p></div>
+        <div class="card"><h3>⚙️ Tecnologia de ponta</h3><p class="sub sub--tight">Sensores IoT e análises preditivas para mais precisão.</p></div>
+      </div>
+
+      <h2 class="mt-32">Como funciona</h2>
+      <ol class="steps">
+        <li><b>Coleta</b><br>Sensores e câmeras enviam dados o tempo todo.</li>
+        <li><b>Análise</b><br>Cada leitura é comparada com os limites de segurança.</li>
+        <li><b>Alerta</b><br>Se algo passa do limite, a central é avisada.</li>
+        <li><b>Ação</b><br>A equipe age e dá baixa no alerta.</li>
+      </ol>
+
+      <h2>Perguntas frequentes</h2>
+      <details><summary>Os dados são em tempo real?</summary><p>Nesta demonstração os dados são simulados. Em um sistema real, viriam dos sensores instalados no parque.</p></details>
+      <details><summary>O que significa cada nível de alerta?</summary><p>Alto exige ação imediata, Atenção pede acompanhamento e Normal ou OK indicam que está tudo dentro do esperado.</p></details>
+      <details><summary>Como reconheço um alerta?</summary><p>Na tela Alertas, use o botão Reconhecer. A baixa fica salva neste navegador.</p></details>
+      <details><summary>Quem recebe as mensagens do formulário?</summary><p>Ninguém: nesta demonstração a mensagem fica só neste navegador.</p></details>
+    </section>
+
+    <!-- CÂMERAS -->
+    <section id="cameras" aria-labelledby="cameras-titulo" hidden>
+      <h1 id="cameras-titulo">Câmeras em tempo real</h1>
+      <p class="sub">Acompanhe ao vivo as principais áreas do parque. Toque em uma câmera para ampliar.</p>
+      <div class="chips" role="group" aria-label="Filtrar por área" id="camF"></div>
+      <div class="grid g4" id="camGrid"></div>
+      <p class="note">As câmeras mostram fotos do parque. A C7 ainda usa uma ilustração. Para trocar por fotos suas, escolha várias de uma vez (vão para as câmeras na ordem) ou uma por câmera, na tela ampliada. As suas fotos ficam salvas só neste navegador.</p>
+      <button type="button" class="btn" id="upAll">📷 Colocar minhas fotos</button>
+      <button type="button" class="chip" id="rmAll">Remover todas</button>
+      <input type="file" id="fl" accept="image/*" multiple hidden>
+    </section>
+
+    <!-- ALERTAS -->
+    <section id="alertas" aria-labelledby="alertas-titulo" hidden>
+      <h1 id="alertas-titulo">Alertas e notificações</h1>
+      <p class="sub">Acompanhe as ocorrências do sistema.</p>
+
+      <div class="grid g2">
+        <div class="card">
+          <div class="dnav">
+            <button type="button" class="chip" id="dPv" aria-label="Dia anterior">‹</button>
+            <b id="dLbl" aria-live="polite"></b>
+            <button type="button" class="chip" id="dNx" aria-label="Próximo dia">›</button>
+          </div>
+          <div class="chips">
+            <button type="button" class="chip" id="dHj">Hoje</button>
+            <input type="date" id="dIn" class="auto" aria-label="Escolher dia">
+          </div>
+
+          <div class="kpis">
+            <div><b class="alto" id="kA">0</b>Alertas ativos</div>
+            <div><b class="atencao" id="kW">0</b>Atenção</div>
+            <div><b class="ok" id="kO">0</b>Tudo certo</div>
+          </div>
+
+          <div class="chips" role="group" aria-label="Filtrar alertas" id="alF"></div>
+          <div id="alList"></div>
+
+          <details class="card">
+            <summary>Registrar ocorrência</summary>
+            <form id="oc" novalidate>
+              <label>Nível
+                <select id="oL">
+                  <option value="alto">Alto</option>
+                  <option value="atencao" selected>Atenção</option>
+                  <option value="normal">Normal</option>
+                </select>
+              </label>
+              <label>O que aconteceu<input id="oT" maxlength="80"></label>
+              <label>Local<input id="oS" maxlength="40" placeholder="Ex.: Trilha, Câmera 05"></label>
+              <div class="err" id="oErr" role="alert"></div>
+              <button class="btn pri" type="submit">Registrar</button>
+            </form>
+          </details>
+        </div>
+
+        <div>
+          <div class="card">
+            <h3>Nível do rio <small class="note">Sensor S03 · últimas leituras</small></h3>
+            <svg id="river" viewBox="0 0 440 220" role="img" aria-label="Gráfico do nível do rio" width="100%"></svg>
+            <p class="note" id="riverNote"></p>
+          </div>
+          <div class="card mt-16">
+            <h3>Clima e condições</h3>
+            <p class="sub--tight">Temperatura <b id="wT2">24°C</b> · Umidade <b id="wH2">78%</b> · Vento <b id="wW2">12 km/h</b></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAPA -->
+    <section id="mapa" aria-labelledby="mapa-titulo" hidden>
+      <h1 id="mapa-titulo">Mapa em tempo real</h1>
+      <p class="sub">Câmeras, sensores e áreas de risco do parque. Toque em um ponto para ver detalhes.</p>
+      <div class="grid mapg">
+        <div class="card">
+          <svg id="mapSvg" class="map" viewBox="0 0 600 380" role="group" aria-label="Mapa esquemático do parque"></svg>
+          <div class="chips chips--flush">
+            <button type="button" class="chip" id="zI" aria-label="Aproximar mapa">＋</button>
+            <button type="button" class="chip" id="zO" aria-label="Afastar mapa">－</button>
+          </div>
+          <div class="legend" id="legend"></div>
+        </div>
+        <div class="card" aria-live="polite">
+          <h3 id="mTitle">Selecione um ponto</h3>
+          <p class="sub" id="mText">Os detalhes do ponto escolhido aparecem aqui.</p>
+          <button type="button" class="btn" id="mCam" hidden>Ver câmera</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- RELATÓRIOS -->
+    <section id="relatorios" aria-labelledby="relatorios-titulo" hidden>
+      <h1 id="relatorios-titulo">Relatórios</h1>
+      <p class="sub">Resumo de visitantes, nível do rio e alertas por dia.</p>
+      <div class="chips">
+        <label for="per" class="note inline-label">Período</label>
+        <select id="per" class="auto">
+          <option value="7">Últimos 7 dias</option>
+          <option value="14">Últimos 14 dias</option>
+        </select>
+        <button type="button" class="chip" id="cp">Copiar resumo</button>
+      </div>
+      <div class="kpis" id="repK"></div>
+      <div class="card"><svg id="bars" viewBox="0 0 640 220" width="100%" role="img" aria-label="Visitantes por dia"></svg></div>
+      <div class="card wrap mt-16">
+        <table>
+          <thead>
+            <tr><th scope="col">Dia</th><th scope="col">Visitantes</th><th scope="col">Nível médio do rio</th><th scope="col">Alertas</th></tr>
+          </thead>
+          <tbody id="rep"></tbody>
+        </table>
+      </div>
+      <p class="note">Dados de exemplo gerados para demonstração.</p>
+    </section>
+
+    <!-- CONTATO -->
+    <section id="contato" aria-labelledby="contato-titulo" hidden>
+      <h1 id="contato-titulo">Fale conosco</h1>
+      <p class="sub">Em caso de emergência ou dúvidas, entre em contato.</p>
+      <div class="grid g2">
+        <div class="grid">
+          <div class="card"><b>Central de controle</b><br>+55 (45) 3521-3040 <small class="note">24h</small></div>
+          <div class="card"><b>E-mail</b><br>contato@cataratas.com.br</div>
+          <div class="card"><b>Endereço</b><br>Av. das Cataratas, Foz do Iguaçu - PR</div>
+        </div>
+        <form class="card" id="form" novalidate>
+          <label>Nome<input id="fN" autocomplete="name"></label>
+          <label>E-mail<input id="fE" type="email" autocomplete="email"></label>
+          <label>Mensagem<textarea id="fM" rows="4"></textarea></label>
+          <div class="err" id="fErr" role="alert"></div>
+          <button class="btn pri" type="submit">Enviar mensagem</button>
+          <p class="note">Nesta demonstração a mensagem não é enviada a ninguém.</p>
+        </form>
+      </div>
+      <div class="card mt-16" id="msgs" hidden></div>
+    </section>
+
+  </main>
+
+  <div id="toast" class="card" role="status" aria-live="polite" hidden></div>
+
+  <dialog id="dlg" aria-labelledby="dT">
+    <button type="button" class="chip dialog-close" id="dX">Fechar</button>
+    <h3 id="dT"></h3>
+    <div class="feed feed--dialog" id="dF"></div>
+    <div class="chips chips--flush">
+      <button type="button" class="chip" id="dP">‹ Anterior</button>
+      <button type="button" class="chip" id="dN">Próxima ›</button>
+      <button type="button" class="chip" id="upOne">📷 Usar minha foto aqui</button>
+      <button type="button" class="chip" id="rmOne">Remover foto</button>
+    </div>
+  </dialog>
+
+  <!-- Scripts (ordem importa: cada arquivo usa o que os anteriores definem) -->
+  <script src="js/utils.js" defer></script>
+  <script src="js/dados.js" defer></script>
+  <script src="js/cenas.js" defer></script>
+  <script src="js/inicio.js" defer></script>
+  <script src="js/cameras.js" defer></script>
+  <script src="js/alertas.js" defer></script>
+  <script src="js/mapa.js" defer></script>
+  <script src="js/relatorios.js" defer></script>
+  <script src="js/contato.js" defer></script>
+  <script src="js/busca.js" defer></script>
+  <script src="js/hero.js" defer></script>
+  <script src="js/tema.js" defer></script>
+  <script src="js/rotas.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>
